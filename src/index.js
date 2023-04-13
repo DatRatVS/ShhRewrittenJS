@@ -130,6 +130,11 @@ client.on("messageCreate", (message) => {
 
 client.on("interactionCreate", (interaction) => {
   if (!interaction.isChatInputCommand()) return;
+
+  if (interaction.commandName === "ping") {
+    interaction.reply(`🏓 PONG CARALHO! PING DE **${Math.round(client.ws.ping)}ms** NESSA PORRA DE API`);
+  }
+
   if (!interaction.member.permissions.has("0x0000000000002000")) {
     interaction.reply("menó, cê nem tem permissão, rala fora doente");
     return;

@@ -13,6 +13,10 @@ const commands = [
   {
     name: "setarcanal",
     description: "Use esse comando no canal que calarei bocas... :>",
+  },
+  {
+    name: "ping",
+    description: "Use esse comando para ver meu ping à API... :3",
   }
 ];
 
