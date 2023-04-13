@@ -20,16 +20,18 @@ const commands = [
   }
 ];
 
+const guildId = "000000000000000000";
+
 const rest = new REST({ version: "10" }).setToken(process.env.TOKEN);
 
 (async () => {
   try {
     console.log("Registering Slash Commands...");
     await rest.put(
-      Routes.applicationGuildCommands(process.env.CLIENT_ID, process.env.TEST_GUILD_ID),
+      Routes.applicationGuildCommands(process.env.CLIENT_ID, guildId),
       { body: commands }
     );
-    console.log("Slash Commands Registered!");
+    console.log(`Slash Commands registered on ${guildId}!`);
   } catch (error) {
     console.log(`ERROR: ${error}`);
   }

@@ -128,7 +128,10 @@ client.on("interactionCreate", (interaction) => {
   if (!interaction.isChatInputCommand()) return;
 
   if (interaction.commandName === "ping") {
-    interaction.reply(`🏓 PONG CARALHO! PING DE **${Math.round(client.ws.ping)}ms** NESSA PORRA DE API`);
+    interaction.reply(
+      `🏓 PONG CARALHO! PING DE **${Math.round(client.ws.ping)}ms** NESSA PORRA DE API`
+    );
+    return;
   }
 
   if (!interaction.member.permissions.has("0x0000000000002000")) {
@@ -139,21 +142,29 @@ client.on("interactionCreate", (interaction) => {
   if (interaction.commandName === "chinelo") {
     if (!chinelo) {
       interaction.reply("é pra já kkkkkkkkkk");
-    } else interaction.reply("mas eu já peguei o chinelo caralho");
+    } else {
+      interaction.reply("mas eu já peguei o chinelo caralho");
+      return;
+    }
 
     chinelo = true;
 
     client.user.setPresence({ status: "online" });
+    return;
   }
 
   if (interaction.commandName === "pegarchinelo") {
     if (chinelo) {
       interaction.reply("beleza chefia tá liberado");
-    } else interaction.reply("eu nem tirei a porra do chinelo ainda, tá ficando louco?");
+    } else {
+      interaction.reply("eu nem tirei a porra do chinelo ainda, tá ficando louco?");
+      return;
+    }
 
     chinelo = false;
 
     client.user.setPresence({ status: "idle" });
+    return;
   }
 
   if (interaction.commandName === "setarcanal") {
@@ -163,12 +174,20 @@ client.on("interactionCreate", (interaction) => {
     };
 
     fs.writeFile("channel.json", JSON.stringify(newChannel), (error) => {
-      if (error) console.error(error);
+      if (error) {
+        console.error(error);
+        interaction.reply("deu erro enquanto eu tentava lembrar a porra do canal, que que tu fez seu filho da puta?");
+        return;
+      }
       console.log('Data in "channel.json" were written correctly...');
     });
 
     interaction.reply("setei pra esse canalzinho aqui, estrala os dedos ae");
+    return;
   }
+
+  interaction.reply("viado, tu conseguiu fazer alguma merda que nem existe, meus parabéns");
+  return;
 });
 
 client.login(process.env.TOKEN);
