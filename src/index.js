@@ -51,6 +51,14 @@ const phrases = [
   "seu projetinho de nerdola 🤓🤓🤓🤓🤓",
   "👍",
   "positivo capitão broxa, agora vai pro caralho",
+  "COLOCA UMA DENTADURA NO CU E SORRI PRO CARALHO",
+  "sinto cheiro de meia usada",
+  "vá chupar um canavial de rola",
+  "cala tua boca seu analfabeto funcional",
+  "ninguém pediu sua opinião, seu baiacu desdentado",
+  "AI QUE SONOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO",
+  "faz o L",
+  "alguem manda o markov calar a boca, ninguem liga pra suas frases seu MERDA",
 ];
 
 const activities = [
