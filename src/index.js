@@ -118,10 +118,6 @@ client.on("ready", (c) => {
 
 client.on("messageCreate", (message) => {
   if (message.author.id === client.user.id) return;
-  if (message.content === "chosenChannel") {
-    message.reply(chosenChannel);
-    return;
-  }
   if (chosenChannel != `{"channelid":"${String(message.channel)}"}`) return;
   if (chinelo) {
     message.reply(pickPhrase()).then(() => message.delete());
